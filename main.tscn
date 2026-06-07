@@ -1,0 +1,982 @@
+[gd_scene format=3 uid="uid://1qvs3jbwq1og"]
+
+[ext_resource type="Script" uid="uid://s31vldy2peks" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bem125ov0n72" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c3pnjfkhv4um7" path="res://dorm.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c8miyb1fke1xl" path="res://teacher.gd" id="4_teacher"]
+[ext_resource type="Texture2D" path="res://assets/teacher.png" id="5_teacher_sprite"]
+[ext_resource type="Texture2D" path="res://assets/player.png" id="6_player_sprite"]
+[ext_resource type="Texture2D" path="res://assets/door.png" id="8_door_sprite"]
+[ext_resource type="Texture2D" path="res://assets/blackboard.png" id="9_blackboard_sprite"]
+[ext_resource type="Script" path="res://desks.gd" id="10_desks_script"]
+[ext_resource type="Script" path="res://main.gd" id="11_main_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(113, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_desk"]
+size = Vector2(72, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teacher"]
+size = Vector2(34, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blackboard"]
+size = Vector2(500, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_horizontal"]
+size = Vector2(1050, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_vertical"]
+size = Vector2(32, 620)
+
+[node name="Main" type="Node2D" unique_id=1724156558]
+script = ExtResource("11_main_script")
+
+[node name="ClassroomFloor" type="ColorRect" parent="."]
+offset_right = 1050.0
+offset_bottom = 620.0
+color = Color(0.72, 0.63, 0.45, 1)
+
+[node name="BackWall" type="ColorRect" parent="."]
+offset_right = 1050.0
+offset_bottom = 145.0
+color = Color(0.74, 0.69, 0.56, 1)
+
+[node name="WallBaseboard" type="ColorRect" parent="."]
+offset_top = 145.0
+offset_right = 1050.0
+offset_bottom = 158.0
+color = Color(0.43, 0.32, 0.22, 1)
+
+[node name="FloorTiles" type="Node2D" parent="."]
+
+[node name="TileLineH1" type="ColorRect" parent="FloorTiles"]
+offset_top = 220.0
+offset_right = 1050.0
+offset_bottom = 224.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineH2" type="ColorRect" parent="FloorTiles"]
+offset_top = 300.0
+offset_right = 1050.0
+offset_bottom = 304.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineH3" type="ColorRect" parent="FloorTiles"]
+offset_top = 380.0
+offset_right = 1050.0
+offset_bottom = 384.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineH4" type="ColorRect" parent="FloorTiles"]
+offset_top = 460.0
+offset_right = 1050.0
+offset_bottom = 464.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineH5" type="ColorRect" parent="FloorTiles"]
+offset_top = 540.0
+offset_right = 1050.0
+offset_bottom = 544.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV1" type="ColorRect" parent="FloorTiles"]
+offset_left = 105.0
+offset_top = 158.0
+offset_right = 109.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV2" type="ColorRect" parent="FloorTiles"]
+offset_left = 210.0
+offset_top = 158.0
+offset_right = 214.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV3" type="ColorRect" parent="FloorTiles"]
+offset_left = 315.0
+offset_top = 158.0
+offset_right = 319.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV4" type="ColorRect" parent="FloorTiles"]
+offset_left = 420.0
+offset_top = 158.0
+offset_right = 424.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV5" type="ColorRect" parent="FloorTiles"]
+offset_left = 525.0
+offset_top = 158.0
+offset_right = 529.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV6" type="ColorRect" parent="FloorTiles"]
+offset_left = 630.0
+offset_top = 158.0
+offset_right = 634.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV7" type="ColorRect" parent="FloorTiles"]
+offset_left = 735.0
+offset_top = 158.0
+offset_right = 739.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV8" type="ColorRect" parent="FloorTiles"]
+offset_left = 840.0
+offset_top = 158.0
+offset_right = 844.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="TileLineV9" type="ColorRect" parent="FloorTiles"]
+offset_left = 945.0
+offset_top = 158.0
+offset_right = 949.0
+offset_bottom = 620.0
+color = Color(0.61, 0.52, 0.37, 1)
+
+[node name="FloorScuffs" type="Node2D" parent="."]
+
+[node name="Scuff1" type="ColorRect" parent="FloorScuffs"]
+offset_left = 128.0
+offset_top = 344.0
+offset_right = 176.0
+offset_bottom = 348.0
+color = Color(0.56, 0.47, 0.33, 1)
+
+[node name="Scuff2" type="ColorRect" parent="FloorScuffs"]
+offset_left = 608.0
+offset_top = 254.0
+offset_right = 672.0
+offset_bottom = 258.0
+color = Color(0.56, 0.47, 0.33, 1)
+
+[node name="Scuff3" type="ColorRect" parent="FloorScuffs"]
+offset_left = 762.0
+offset_top = 506.0
+offset_right = 822.0
+offset_bottom = 510.0
+color = Color(0.56, 0.47, 0.33, 1)
+
+[node name="Windows" type="Node2D" parent="."]
+
+[node name="LeftWindow1" type="ColorRect" parent="Windows"]
+offset_left = 32.0
+offset_top = 42.0
+offset_right = 122.0
+offset_bottom = 104.0
+color = Color(0.38, 0.62, 0.74, 1)
+
+[node name="LeftWindow1FrameTop" type="ColorRect" parent="Windows"]
+offset_left = 24.0
+offset_top = 34.0
+offset_right = 130.0
+offset_bottom = 42.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindow1FrameBottom" type="ColorRect" parent="Windows"]
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 130.0
+offset_bottom = 112.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindow1FrameLeft" type="ColorRect" parent="Windows"]
+offset_left = 24.0
+offset_top = 42.0
+offset_right = 32.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindow1FrameRight" type="ColorRect" parent="Windows"]
+offset_left = 122.0
+offset_top = 42.0
+offset_right = 130.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindow1CrossV" type="ColorRect" parent="Windows"]
+offset_left = 74.0
+offset_top = 42.0
+offset_right = 82.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindow1CrossH" type="ColorRect" parent="Windows"]
+offset_left = 32.0
+offset_top = 70.0
+offset_right = 122.0
+offset_bottom = 78.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1" type="ColorRect" parent="Windows"]
+offset_left = 928.0
+offset_top = 42.0
+offset_right = 1018.0
+offset_bottom = 104.0
+color = Color(0.38, 0.62, 0.74, 1)
+
+[node name="RightWindow1FrameTop" type="ColorRect" parent="Windows"]
+offset_left = 920.0
+offset_top = 34.0
+offset_right = 1026.0
+offset_bottom = 42.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1FrameBottom" type="ColorRect" parent="Windows"]
+offset_left = 920.0
+offset_top = 104.0
+offset_right = 1026.0
+offset_bottom = 112.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1FrameLeft" type="ColorRect" parent="Windows"]
+offset_left = 920.0
+offset_top = 42.0
+offset_right = 928.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1FrameRight" type="ColorRect" parent="Windows"]
+offset_left = 1018.0
+offset_top = 42.0
+offset_right = 1026.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1CrossV" type="ColorRect" parent="Windows"]
+offset_left = 970.0
+offset_top = 42.0
+offset_right = 978.0
+offset_bottom = 104.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="RightWindow1CrossH" type="ColorRect" parent="Windows"]
+offset_left = 928.0
+offset_top = 70.0
+offset_right = 1018.0
+offset_bottom = 78.0
+color = Color(0.28, 0.17, 0.1, 1)
+
+[node name="LeftWindowLight" type="Polygon2D" parent="Windows"]
+color = Color(0.9, 0.82, 0.48, 0.18)
+polygon = PackedVector2Array(32, 112, 122, 112, 238, 282, 118, 282)
+
+[node name="RightWindowLight" type="Polygon2D" parent="Windows"]
+color = Color(0.9, 0.82, 0.48, 0.18)
+polygon = PackedVector2Array(928, 112, 1018, 112, 900, 282, 780, 282)
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(525, -16)
+shape = SubResource("RectangleShape2D_boundary_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(525, 636)
+shape = SubResource("RectangleShape2D_boundary_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-16, 310)
+shape = SubResource("RectangleShape2D_boundary_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1066, 310)
+shape = SubResource("RectangleShape2D_boundary_vertical")
+
+[node name="Blackboard" type="StaticBody2D" parent="."]
+position = Vector2(525, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blackboard"]
+shape = SubResource("RectangleShape2D_blackboard")
+
+[node name="ColorRect" type="ColorRect" parent="Blackboard"]
+visible = false
+offset_left = -250.0
+offset_top = -30.0
+offset_right = 250.0
+offset_bottom = 30.0
+color = Color(0.05, 0.27, 0.17, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Blackboard"]
+texture_filter = 1
+texture = ExtResource("9_blackboard_sprite")
+
+[node name="WritingMarks" type="Node2D" parent="Blackboard"]
+visible = false
+
+[node name="Mark1" type="ColorRect" parent="Blackboard/WritingMarks"]
+offset_left = -115.0
+offset_top = -11.0
+offset_right = -48.0
+offset_bottom = -7.0
+color = Color(0.86, 0.91, 0.78, 1)
+
+[node name="Mark2" type="ColorRect" parent="Blackboard/WritingMarks"]
+offset_left = -36.0
+offset_top = -10.0
+offset_right = 42.0
+offset_bottom = -6.0
+color = Color(0.86, 0.91, 0.78, 1)
+
+[node name="Mark3" type="ColorRect" parent="Blackboard/WritingMarks"]
+offset_left = -92.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = 10.0
+color = Color(0.86, 0.91, 0.78, 1)
+
+[node name="Mark4" type="ColorRect" parent="Blackboard/WritingMarks"]
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 82.0
+offset_bottom = 10.0
+color = Color(0.86, 0.91, 0.78, 1)
+
+[node name="Teacher" type="CharacterBody2D" parent="."]
+position = Vector2(525, 145)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_teacher")
+speed = 80.0
+patrol_left_x = 390.0
+patrol_right_x = 660.0
+front_marker = NodePath("VisualRoot/FrontMarker")
+back_marker = NodePath("VisualRoot/BackMarker")
+visual_root = NodePath("VisualRoot")
+sprite_visual = NodePath("Sprite2D")
+chalk_stick = NodePath("ChalkStick")
+writing_marks = NodePath("../Blackboard/WritingMarks")
+sight_visual = NodePath("VisualRoot/SightVisual")
+anger_bubble = NodePath("AngerBubble")
+game_over_popup = NodePath("../GameOverPopup")
+player_path = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teacher"]
+shape = SubResource("RectangleShape2D_teacher")
+
+[node name="Sprite2D" type="Sprite2D" parent="Teacher"]
+position = Vector2(0, -9)
+texture_filter = 1
+texture = ExtResource("5_teacher_sprite")
+
+[node name="ChalkStick" type="ColorRect" parent="Teacher"]
+visible = false
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 1.0
+color = Color(0.96, 0.95, 0.82, 1)
+
+[node name="AngerBubble" type="Node2D" parent="Teacher"]
+visible = false
+position = Vector2(24, -76)
+
+[node name="BubbleBack" type="ColorRect" parent="Teacher/AngerBubble"]
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 152.0
+offset_bottom = 20.0
+color = Color(1, 0.96, 0.82, 1)
+
+[node name="BubbleBorderTop" type="ColorRect" parent="Teacher/AngerBubble"]
+offset_left = -22.0
+offset_top = -26.0
+offset_right = 156.0
+offset_bottom = -22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderBottom" type="ColorRect" parent="Teacher/AngerBubble"]
+offset_left = -22.0
+offset_top = 20.0
+offset_right = 156.0
+offset_bottom = 24.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderLeft" type="ColorRect" parent="Teacher/AngerBubble"]
+offset_left = -22.0
+offset_top = -22.0
+offset_right = -18.0
+offset_bottom = 20.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderRight" type="ColorRect" parent="Teacher/AngerBubble"]
+offset_left = 152.0
+offset_top = -22.0
+offset_right = 156.0
+offset_bottom = 20.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleTail" type="Polygon2D" parent="Teacher/AngerBubble"]
+color = Color(1, 0.96, 0.82, 1)
+polygon = PackedVector2Array(2, 20, 18, 20, 2, 36)
+
+[node name="BubbleText" type="Label" parent="Teacher/AngerBubble"]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 146.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.22, 0.06, 0.03, 1)
+theme_override_font_sizes/font_size = 18
+text = "别想溜！回座位！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VisualRoot" type="Node2D" parent="Teacher"]
+
+[node name="Body" type="ColorRect" parent="Teacher/VisualRoot"]
+visible = false
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 17.0
+color = Color(0.13, 0.17, 0.28, 1)
+
+[node name="FrontMarker" type="Node2D" parent="Teacher/VisualRoot"]
+position = Vector2(0, 8)
+
+[node name="LeftEye" type="ColorRect" parent="Teacher/VisualRoot/FrontMarker"]
+offset_left = -9.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = 3.0
+color = Color(0.95, 0.84, 0.58, 1)
+
+[node name="RightEye" type="ColorRect" parent="Teacher/VisualRoot/FrontMarker"]
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 3.0
+color = Color(0.95, 0.84, 0.58, 1)
+
+[node name="BackMarker" type="ColorRect" parent="Teacher/VisualRoot"]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 10.0
+offset_bottom = -6.0
+color = Color(0.03, 0.04, 0.08, 1)
+
+[node name="SightVisual" type="Polygon2D" parent="Teacher/VisualRoot"]
+show_behind_parent = true
+color = Color(0.95, 0.84, 0.2, 0.18)
+polygon = PackedVector2Array(0, 0, 578.509, 689.44, 523.343, 732.197, 465.029, 770.55, 403.919, 804.269, 340.38, 833.152, 274.793, 857.023, 207.554, 875.74, 139.067, 889.191, 69.743, 897.294, 0, 900, -69.743, 897.294, -139.067, 889.191, -207.554, 875.74, -274.793, 857.023, -340.38, 833.152, -403.919, 804.269, -465.029, 770.55, -523.343, 732.197, -578.509, 689.44)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1256286948]
+position = Vector2(510, 345)
+script = ExtResource("1_0xm2m")
+sprite_visual = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=241234373]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=685217485]
+position = Vector2(0, -8)
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+
+[node name="Dorm" type="Area2D" parent="." unique_id=474790507]
+script = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dorm" unique_id=570391312]
+position = Vector2(980, 555)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="Dorm" unique_id=1612433270]
+visible = false
+custom_minimum_size = Vector2(80, 120)
+offset_left = 1039.0
+offset_top = 438.0
+offset_right = 891.0
+offset_bottom = 558.0
+color = Color(0.54509807, 0.3529412, 0.16862746, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dorm"]
+position = Vector2(980, 555)
+texture_filter = 1
+texture = ExtResource("8_door_sprite")
+
+[node name="Desks" type="Node2D" parent="."]
+script = ExtResource("10_desks_script")
+
+[node name="Students" type="Node2D" parent="."]
+
+[node name="Student1" type="Sprite2D" parent="Students"]
+position = Vector2(210, 235)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student2" type="Sprite2D" parent="Students"]
+position = Vector2(360, 235)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student3" type="Sprite2D" parent="Students"]
+position = Vector2(510, 235)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student4" type="Sprite2D" parent="Students"]
+position = Vector2(660, 235)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student5" type="Sprite2D" parent="Students"]
+position = Vector2(810, 235)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student6" type="Sprite2D" parent="Students"]
+position = Vector2(210, 345)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student7" type="Sprite2D" parent="Students"]
+position = Vector2(360, 345)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student8" type="Sprite2D" parent="Students"]
+position = Vector2(360, 455)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student9" type="Sprite2D" parent="Students"]
+position = Vector2(660, 345)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student10" type="Sprite2D" parent="Students"]
+position = Vector2(810, 345)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student11" type="Sprite2D" parent="Students"]
+position = Vector2(210, 455)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student12" type="Sprite2D" parent="Students"]
+position = Vector2(510, 455)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student14" type="Sprite2D" parent="Students"]
+position = Vector2(660, 455)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student15" type="Sprite2D" parent="Students"]
+position = Vector2(810, 455)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student16" type="Sprite2D" parent="Students"]
+position = Vector2(210, 565)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student17" type="Sprite2D" parent="Students"]
+position = Vector2(360, 565)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student18" type="Sprite2D" parent="Students"]
+position = Vector2(510, 565)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student19" type="Sprite2D" parent="Students"]
+position = Vector2(660, 565)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Student20" type="Sprite2D" parent="Students"]
+position = Vector2(810, 565)
+flip_v = true
+texture_filter = 1
+texture = ExtResource("6_player_sprite")
+modulate = Color(0.62, 0.72, 1, 1)
+
+[node name="Desk1" type="StaticBody2D" parent="Desks"]
+position = Vector2(210, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk1"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk1"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk2" type="StaticBody2D" parent="Desks"]
+position = Vector2(360, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk2"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk2"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk3" type="StaticBody2D" parent="Desks"]
+position = Vector2(510, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk3"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk3"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk4" type="StaticBody2D" parent="Desks"]
+position = Vector2(660, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk4"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk4"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk5" type="StaticBody2D" parent="Desks"]
+position = Vector2(810, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk5"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk5"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk6" type="StaticBody2D" parent="Desks"]
+position = Vector2(210, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk6"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk6"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk7" type="StaticBody2D" parent="Desks"]
+position = Vector2(360, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk7"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk7"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk8" type="StaticBody2D" parent="Desks"]
+position = Vector2(510, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk8"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk8"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk9" type="StaticBody2D" parent="Desks"]
+position = Vector2(660, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk9"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk9"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk10" type="StaticBody2D" parent="Desks"]
+position = Vector2(810, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk10"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk10"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk11" type="StaticBody2D" parent="Desks"]
+position = Vector2(210, 415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk11"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk11"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk12" type="StaticBody2D" parent="Desks"]
+position = Vector2(360, 415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk12"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk12"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk13" type="StaticBody2D" parent="Desks"]
+position = Vector2(510, 415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk13"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk13"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk14" type="StaticBody2D" parent="Desks"]
+position = Vector2(660, 415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk14"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk14"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk15" type="StaticBody2D" parent="Desks"]
+position = Vector2(810, 415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk15"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk15"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk16" type="StaticBody2D" parent="Desks"]
+position = Vector2(210, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk16"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk16"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk17" type="StaticBody2D" parent="Desks"]
+position = Vector2(360, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk17"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk17"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk18" type="StaticBody2D" parent="Desks"]
+position = Vector2(510, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk18"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk18"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk19" type="StaticBody2D" parent="Desks"]
+position = Vector2(660, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk19"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk19"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="Desk20" type="StaticBody2D" parent="Desks"]
+position = Vector2(810, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk20"]
+shape = SubResource("RectangleShape2D_desk")
+
+[node name="ColorRect" type="ColorRect" parent="Desks/Desk20"]
+offset_left = -36.0
+offset_top = -23.0
+offset_right = 36.0
+offset_bottom = 23.0
+color = Color(0.45, 0.26, 0.12, 1)
+
+[node name="GameOverPopup" type="Node2D" parent="."]
+visible = false
+z_index = 100
+
+[node name="Dim" type="ColorRect" parent="GameOverPopup"]
+offset_right = 1050.0
+offset_bottom = 620.0
+color = Color(0, 0, 0, 0.42)
+
+[node name="Panel" type="ColorRect" parent="GameOverPopup"]
+offset_left = 255.0
+offset_top = 222.0
+offset_right = 795.0
+offset_bottom = 408.0
+color = Color(1, 0.95, 0.82, 1)
+
+[node name="PanelBorderTop" type="ColorRect" parent="GameOverPopup"]
+offset_left = 247.0
+offset_top = 214.0
+offset_right = 803.0
+offset_bottom = 222.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderBottom" type="ColorRect" parent="GameOverPopup"]
+offset_left = 247.0
+offset_top = 408.0
+offset_right = 803.0
+offset_bottom = 416.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderLeft" type="ColorRect" parent="GameOverPopup"]
+offset_left = 247.0
+offset_top = 222.0
+offset_right = 255.0
+offset_bottom = 408.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderRight" type="ColorRect" parent="GameOverPopup"]
+offset_left = 795.0
+offset_top = 222.0
+offset_right = 803.0
+offset_bottom = 408.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="Title" type="Label" parent="GameOverPopup"]
+offset_left = 270.0
+offset_top = 242.0
+offset_right = 780.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.23, 0.06, 0.03, 1)
+theme_override_font_sizes/font_size = 36
+text = "你已成为老师关注对象"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hint" type="Label" parent="GameOverPopup"]
+offset_left = 270.0
+offset_top = 302.0
+offset_right = 780.0
+offset_bottom = 334.0
+theme_override_colors/font_color = Color(0.33, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "游戏结束"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverPopup"]
+offset_left = 425.0
+offset_top = 350.0
+offset_right = 625.0
+offset_bottom = 390.0
+theme_override_font_sizes/font_size = 22
+text = "重新开始"
+
+[connection signal="body_entered" from="Dorm" to="Dorm" method="_on_body_entered"]
+[connection signal="pressed" from="GameOverPopup/RestartButton" to="." method="_on_restart_button_pressed"]

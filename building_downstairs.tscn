@@ -1,0 +1,718 @@
+[gd_scene format=3 uid="uid://h4ifk3jt556t"]
+
+[ext_resource type="Script" uid="uid://s31vldy2peks" path="res://player.gd" id="1_player_script"]
+[ext_resource type="Texture2D" uid="uid://ck7pvhl8lju0l" path="res://assets/player.png" id="2_player_sprite"]
+[ext_resource type="Script" uid="uid://dc4fasovakdjr" path="res://building_downstairs.gd" id="3_building_script"]
+[ext_resource type="Texture2D" uid="uid://cb7uyvtcpbvy8" path="res://assets/teacher.png" id="4_teacher_sprite"]
+[ext_resource type="Script" uid="uid://drfl5iwq6x322" path="res://counselor.gd" id="5_counselor_script"]
+[ext_resource type="Texture2D" uid="uid://cdty3tqes32uu" path="res://assets/pixel_tree.png" id="6_tree_sprite"]
+[ext_resource type="Script" uid="uid://bo13gyu45wtrc" path="res://bike.gd" id="7_bike_script"]
+[ext_resource type="Texture2D" uid="uid://ep8314yt87x3" path="res://assets/pixel_bike.png" id="8_bike_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obstacle_square"]
+size = Vector2(96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obstacle_rect"]
+size = Vector2(160, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(110, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bike"]
+size = Vector2(72, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_counselor"]
+size = Vector2(34, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(36, 36)
+
+[node name="BuildingDownstairs" type="Node2D" unique_id=1077571587]
+script = ExtResource("3_building_script")
+
+[node name="CementGround" type="ColorRect" parent="." unique_id=1260746863]
+offset_left = -1.0
+offset_right = 1049.0
+offset_bottom = 620.0
+color = Color(0.29, 0.31, 0.29, 1)
+
+[node name="CementTiles" type="Node2D" parent="." unique_id=766282445]
+
+[node name="LineH1" type="ColorRect" parent="CementTiles" unique_id=266002953]
+offset_top = 120.0
+offset_right = 1050.0
+offset_bottom = 124.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineH2" type="ColorRect" parent="CementTiles" unique_id=405557749]
+offset_top = 240.0
+offset_right = 1050.0
+offset_bottom = 244.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineH3" type="ColorRect" parent="CementTiles" unique_id=1734990448]
+offset_top = 360.0
+offset_right = 1050.0
+offset_bottom = 364.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineH4" type="ColorRect" parent="CementTiles" unique_id=1038717006]
+offset_top = 480.0
+offset_right = 1050.0
+offset_bottom = 484.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV1" type="ColorRect" parent="CementTiles" unique_id=356479752]
+offset_left = 150.0
+offset_right = 154.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV2" type="ColorRect" parent="CementTiles" unique_id=888577196]
+offset_left = 300.0
+offset_right = 304.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV3" type="ColorRect" parent="CementTiles" unique_id=1018225857]
+offset_left = 450.0
+offset_right = 454.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV4" type="ColorRect" parent="CementTiles" unique_id=642956548]
+offset_left = 600.0
+offset_right = 604.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV5" type="ColorRect" parent="CementTiles" unique_id=1276340868]
+offset_left = 750.0
+offset_right = 754.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="LineV6" type="ColorRect" parent="CementTiles" unique_id=2090559757]
+offset_left = 900.0
+offset_right = 904.0
+offset_bottom = 620.0
+color = Color(0.42, 0.44, 0.41, 1)
+
+[node name="CementScuffs" type="Node2D" parent="." unique_id=860562900]
+
+[node name="Scuff1" type="ColorRect" parent="CementScuffs" unique_id=1659941409]
+offset_left = 250.0
+offset_top = 160.0
+offset_right = 330.0
+offset_bottom = 164.0
+color = Color(0.39, 0.39, 0.37, 1)
+
+[node name="Scuff2" type="ColorRect" parent="CementScuffs" unique_id=663004439]
+offset_left = 640.0
+offset_top = 418.0
+offset_right = 728.0
+offset_bottom = 422.0
+color = Color(0.39, 0.39, 0.37, 1)
+
+[node name="Scuff3" type="ColorRect" parent="CementScuffs" unique_id=593737736]
+offset_left = 90.0
+offset_top = 520.0
+offset_right = 154.0
+offset_bottom = 524.0
+color = Color(0.39, 0.39, 0.37, 1)
+
+[node name="RoadMarkings" type="Node2D" parent="." unique_id=1532827572]
+
+[node name="CenterLane" type="ColorRect" parent="RoadMarkings" unique_id=1832206116]
+offset_left = 520.0
+offset_top = 72.0
+offset_right = 528.0
+offset_bottom = 590.0
+color = Color(0.92, 0.78, 0.26, 1)
+
+[node name="CrosswalkTopStripe1" type="ColorRect" parent="RoadMarkings" unique_id=1015562851]
+offset_left = 64.0
+offset_top = 78.0
+offset_right = 236.0
+offset_bottom = 88.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkTopStripe2" type="ColorRect" parent="RoadMarkings" unique_id=1156355250]
+offset_left = 64.0
+offset_top = 100.0
+offset_right = 236.0
+offset_bottom = 110.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkTopStripe3" type="ColorRect" parent="RoadMarkings" unique_id=1731252321]
+offset_left = 64.0
+offset_top = 122.0
+offset_right = 236.0
+offset_bottom = 132.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkTopStripe4" type="ColorRect" parent="RoadMarkings" unique_id=662038610]
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 236.0
+offset_bottom = 154.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkBottomStripe1" type="ColorRect" parent="RoadMarkings" unique_id=1618008359]
+offset_left = 812.0
+offset_top = 430.0
+offset_right = 1010.0
+offset_bottom = 442.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkBottomStripe2" type="ColorRect" parent="RoadMarkings" unique_id=948177070]
+offset_left = 812.0
+offset_top = 458.0
+offset_right = 1010.0
+offset_bottom = 470.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkBottomStripe3" type="ColorRect" parent="RoadMarkings" unique_id=1061516196]
+offset_left = 812.0
+offset_top = 486.0
+offset_right = 1010.0
+offset_bottom = 498.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="CrosswalkBottomStripe4" type="ColorRect" parent="RoadMarkings" unique_id=1490873352]
+offset_left = 812.0
+offset_top = 514.0
+offset_right = 1010.0
+offset_bottom = 526.0
+color = Color(0.88, 0.88, 0.82, 1)
+
+[node name="DormArrowShaft" type="ColorRect" parent="RoadMarkings" unique_id=1036081292]
+offset_left = 740.0
+offset_top = 556.0
+offset_right = 880.0
+offset_bottom = 568.0
+color = Color(0.9, 0.9, 0.82, 1)
+
+[node name="DormArrowHead" type="Polygon2D" parent="RoadMarkings" unique_id=1143442602]
+color = Color(0.9, 0.9, 0.82, 1)
+polygon = PackedVector2Array(880, 542, 928, 562, 880, 582)
+
+[node name="ExitRoadText" type="Label" parent="RoadMarkings"]
+offset_left = 914.0
+offset_top = 532.0
+offset_right = 1024.0
+offset_bottom = 582.0
+theme_override_colors/font_color = Color(0.9, 0.9, 0.82, 1)
+theme_override_font_sizes/font_size = 34
+text = "离开"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuildingArrowShaft" type="ColorRect" parent="RoadMarkings" unique_id=1858417690]
+offset_left = 418.0
+offset_top = 102.0
+offset_right = 430.0
+offset_bottom = 210.0
+color = Color(0.9, 0.9, 0.82, 1)
+
+[node name="BuildingArrowHead" type="Polygon2D" parent="RoadMarkings" unique_id=860026373]
+color = Color(0.9, 0.9, 0.82, 1)
+polygon = PackedVector2Array(424, 58, 396, 106, 452, 106)
+
+[node name="WalkArrowShaft" type="ColorRect" parent="RoadMarkings" unique_id=2090692683]
+offset_left = 318.0
+offset_top = 524.0
+offset_right = 438.0
+offset_bottom = 534.0
+color = Color(0.9, 0.9, 0.82, 1)
+
+[node name="WalkArrowHead" type="Polygon2D" parent="RoadMarkings" unique_id=1389593147]
+color = Color(0.9, 0.9, 0.82, 1)
+polygon = PackedVector2Array(438, 510, 482, 529, 438, 548)
+
+[node name="Title" type="Label" parent="." unique_id=1557934186]
+visible = false
+offset_left = 350.0
+offset_top = 24.0
+offset_right = 700.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.16, 0.16, 0.15, 1)
+theme_override_font_sizes/font_size = 28
+text = "教学楼楼下"
+horizontal_alignment = 1
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=159489188]
+
+[node name="PlanterLeft" type="StaticBody2D" parent="Obstacles" unique_id=122744141]
+position = Vector2(220, 180)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/PlanterLeft" unique_id=617347183]
+position = Vector2(-4, 129)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/PlanterLeft" unique_id=883740200]
+texture_filter = 1
+position = Vector2(-4, 133)
+texture = ExtResource("6_tree_sprite")
+
+[node name="SpawnRightBlock" type="StaticBody2D" parent="Obstacles" unique_id=67405212]
+position = Vector2(145, 42)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SpawnRightBlock" unique_id=885503760]
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/SpawnRightBlock" unique_id=486654888]
+texture_filter = 1
+texture = ExtResource("6_tree_sprite")
+
+[node name="SpawnBottomBlock" type="StaticBody2D" parent="Obstacles" unique_id=438741052]
+position = Vector2(82, 190)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SpawnBottomBlock" unique_id=1272866765]
+shape = SubResource("RectangleShape2D_obstacle_rect")
+
+[node name="Visual" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=1649716623]
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 80.0
+offset_bottom = 32.0
+color = Color(0.28, 0.18, 0.1, 1)
+
+[node name="GrassTop" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=2075740187]
+offset_left = -72.0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 24.0
+color = Color(0.14, 0.38, 0.16, 1)
+
+[node name="Flower1" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=710637628]
+offset_left = -58.0
+offset_top = -12.0
+offset_right = -48.0
+offset_bottom = -2.0
+color = Color(0.95, 0.28, 0.38, 1)
+
+[node name="Flower2" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=461311505]
+offset_left = -24.0
+offset_top = 6.0
+offset_right = -14.0
+offset_bottom = 16.0
+color = Color(0.95, 0.85, 0.28, 1)
+
+[node name="Flower3" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=1469613303]
+offset_left = 18.0
+offset_top = -14.0
+offset_right = 28.0
+offset_bottom = -4.0
+color = Color(0.72, 0.42, 0.95, 1)
+
+[node name="Flower4" type="ColorRect" parent="Obstacles/SpawnBottomBlock" unique_id=546216382]
+offset_left = 52.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 18.0
+color = Color(0.95, 0.52, 0.24, 1)
+
+[node name="PlanterCenter" type="StaticBody2D" parent="Obstacles" unique_id=1631252224]
+position = Vector2(474, 330)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/PlanterCenter" unique_id=704666957]
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/PlanterCenter" unique_id=1986577362]
+texture_filter = 1
+texture = ExtResource("6_tree_sprite")
+
+[node name="BlockExtra1" type="StaticBody2D" parent="Obstacles" unique_id=132509044]
+position = Vector2(330, 500)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/BlockExtra1" unique_id=1047366301]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/BlockExtra1" unique_id=1526590234]
+texture_filter = 1
+position = Vector2(-1, -25)
+texture = ExtResource("6_tree_sprite")
+
+[node name="BlockExtra2" type="StaticBody2D" parent="Obstacles" unique_id=858230948]
+position = Vector2(600, 110)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/BlockExtra2" unique_id=1937920687]
+position = Vector2(394, 234)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/BlockExtra2" unique_id=449932982]
+texture_filter = 1
+position = Vector2(392, 236)
+texture = ExtResource("6_tree_sprite")
+
+[node name="BlockExtra3" type="StaticBody2D" parent="Obstacles" unique_id=1197289340]
+position = Vector2(900, 330)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/BlockExtra3" unique_id=1266754088]
+position = Vector2(-179, -194)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/BlockExtra3" unique_id=1822282138]
+texture_filter = 1
+position = Vector2(-179, -191)
+texture = ExtResource("6_tree_sprite")
+
+[node name="ColumnRight" type="StaticBody2D" parent="Obstacles" unique_id=892973707]
+position = Vector2(720, 190)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ColumnRight" unique_id=1403805920]
+position = Vector2(-354, -59)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/ColumnRight" unique_id=1097131267]
+texture_filter = 1
+position = Vector2(-355, -64)
+texture = ExtResource("6_tree_sprite")
+
+[node name="TopRightTree" type="StaticBody2D" parent="Obstacles" unique_id=626887345]
+position = Vector2(960, 90)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/TopRightTree" unique_id=1494990575]
+position = Vector2(-235, 259)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/TopRightTree" unique_id=598434220]
+texture_filter = 1
+position = Vector2(-232, 261)
+texture = ExtResource("6_tree_sprite")
+
+[node name="TopRightTree2" type="StaticBody2D" parent="Obstacles" unique_id=1535897794]
+position = Vector2(860, 95)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/TopRightTree2" unique_id=9626800]
+position = Vector2(-277, 387)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/TopRightTree2" unique_id=377548405]
+texture_filter = 1
+position = Vector2(-276, 384)
+texture = ExtResource("6_tree_sprite")
+
+[node name="BenchBottom" type="StaticBody2D" parent="Obstacles" unique_id=264999980]
+position = Vector2(780, 455)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/BenchBottom" unique_id=1981316376]
+position = Vector2(74, 113)
+shape = SubResource("RectangleShape2D_obstacle_square")
+
+[node name="Visual" type="Sprite2D" parent="Obstacles/BenchBottom" unique_id=1830538731]
+texture_filter = 1
+position = Vector2(77, 116)
+texture = ExtResource("6_tree_sprite")
+
+[node name="DormExit" type="Area2D" parent="." unique_id=107201697]
+position = Vector2(965, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DormExit" unique_id=174219146]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="Bike" type="Area2D" parent="." unique_id=1007592507]
+position = Vector2(280, 92)
+script = ExtResource("7_bike_script")
+prompt_bubble = NodePath("PromptBubble")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bike" unique_id=430154209]
+shape = SubResource("RectangleShape2D_bike")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bike" unique_id=482318606]
+texture_filter = 1
+texture = ExtResource("8_bike_sprite")
+
+[node name="PromptBubble" type="Node2D" parent="Bike" unique_id=1740592094]
+visible = false
+position = Vector2(0, -54)
+
+[node name="BubbleBack" type="ColorRect" parent="Bike/PromptBubble" unique_id=2037634186]
+offset_left = -62.0
+offset_top = -18.0
+offset_right = 62.0
+offset_bottom = 18.0
+color = Color(1, 0.96, 0.82, 1)
+
+[node name="BubbleText" type="Label" parent="Bike/PromptBubble" unique_id=1703739312]
+offset_left = -56.0
+offset_top = -12.0
+offset_right = 56.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
+theme_override_font_sizes/font_size = 18
+text = "按F骑上单车"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Counselors" type="Node2D" parent="." unique_id=1630336331]
+
+[node name="Counselor1" type="CharacterBody2D" parent="Counselors" unique_id=1229287677]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_counselor_script")
+spawn_area = Rect2(72, 72, 906, 238)
+player_path = NodePath("../../Player")
+obstacle_parent_path = NodePath("../../Obstacles")
+caught_bubble = NodePath("CaughtBubble")
+
+[node name="SightVisual" type="Polygon2D" parent="Counselors/Counselor1" unique_id=1906558251]
+show_behind_parent = true
+color = Color(0.95, 0.84, 0.2, 0.24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counselors/Counselor1" unique_id=663657876]
+shape = SubResource("RectangleShape2D_counselor")
+
+[node name="Sprite2D" type="Sprite2D" parent="Counselors/Counselor1" unique_id=1772617208]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("4_teacher_sprite")
+
+[node name="CaughtBubble" type="Node2D" parent="Counselors/Counselor1"]
+visible = false
+position = Vector2(32, -74)
+
+[node name="BubbleBack" type="ColorRect" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 188.0
+offset_bottom = 22.0
+color = Color(1, 0.96, 0.82, 1)
+
+[node name="BubbleBorderTop" type="ColorRect" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = -22.0
+offset_top = -26.0
+offset_right = 192.0
+offset_bottom = -22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderBottom" type="ColorRect" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = -22.0
+offset_top = 22.0
+offset_right = 192.0
+offset_bottom = 26.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderLeft" type="ColorRect" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = -22.0
+offset_top = -22.0
+offset_right = -18.0
+offset_bottom = 22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderRight" type="ColorRect" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = 188.0
+offset_top = -22.0
+offset_right = 192.0
+offset_bottom = 22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleText" type="Label" parent="Counselors/Counselor1/CaughtBubble"]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 178.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.23, 0.06, 0.03, 1)
+theme_override_font_sizes/font_size = 20
+text = "别想溜，回教室！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Counselor2" type="CharacterBody2D" parent="Counselors" unique_id=579544263]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_counselor_script")
+spawn_area = Rect2(72, 310, 906, 208)
+player_path = NodePath("../../Player")
+obstacle_parent_path = NodePath("../../Obstacles")
+caught_bubble = NodePath("CaughtBubble")
+
+[node name="SightVisual" type="Polygon2D" parent="Counselors/Counselor2" unique_id=351381341]
+show_behind_parent = true
+color = Color(0.95, 0.84, 0.2, 0.24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counselors/Counselor2" unique_id=1444956061]
+shape = SubResource("RectangleShape2D_counselor")
+
+[node name="Sprite2D" type="Sprite2D" parent="Counselors/Counselor2" unique_id=455718224]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("4_teacher_sprite")
+
+[node name="CaughtBubble" type="Node2D" parent="Counselors/Counselor2"]
+visible = false
+position = Vector2(32, -74)
+
+[node name="BubbleBack" type="ColorRect" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 188.0
+offset_bottom = 22.0
+color = Color(1, 0.96, 0.82, 1)
+
+[node name="BubbleBorderTop" type="ColorRect" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = -22.0
+offset_top = -26.0
+offset_right = 192.0
+offset_bottom = -22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderBottom" type="ColorRect" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = -22.0
+offset_top = 22.0
+offset_right = 192.0
+offset_bottom = 26.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderLeft" type="ColorRect" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = -22.0
+offset_top = -22.0
+offset_right = -18.0
+offset_bottom = 22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleBorderRight" type="ColorRect" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = 188.0
+offset_top = -22.0
+offset_right = 192.0
+offset_bottom = 22.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="BubbleText" type="Label" parent="Counselors/Counselor2/CaughtBubble"]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 178.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.23, 0.06, 0.03, 1)
+theme_override_font_sizes/font_size = 20
+text = "别想溜，回教室！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1699712508]
+position = Vector2(42, 42)
+collision_mask = 2
+script = ExtResource("1_player_script")
+speed = 90
+min_y = 0.0
+sprite_visual = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=799050936]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=556313030]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("2_player_sprite")
+
+[node name="CounselorGameOverPopup" type="Node2D" parent="."]
+visible = false
+z_index = 100
+
+[node name="Dim" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_right = 1050.0
+offset_bottom = 620.0
+color = Color(0, 0, 0, 0.42)
+
+[node name="Panel" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_left = 220.0
+offset_top = 204.0
+offset_right = 830.0
+offset_bottom = 432.0
+color = Color(1, 0.95, 0.82, 1)
+
+[node name="PanelBorderTop" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_left = 212.0
+offset_top = 196.0
+offset_right = 838.0
+offset_bottom = 204.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderBottom" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_left = 212.0
+offset_top = 432.0
+offset_right = 838.0
+offset_bottom = 440.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderLeft" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_left = 212.0
+offset_top = 204.0
+offset_right = 220.0
+offset_bottom = 432.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="PanelBorderRight" type="ColorRect" parent="CounselorGameOverPopup"]
+offset_left = 830.0
+offset_top = 204.0
+offset_right = 838.0
+offset_bottom = 432.0
+color = Color(0.2, 0.11, 0.07, 1)
+
+[node name="Title" type="Label" parent="CounselorGameOverPopup"]
+offset_left = 242.0
+offset_top = 232.0
+offset_right = 808.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.23, 0.06, 0.03, 1)
+theme_override_font_sizes/font_size = 34
+text = "你已成为辅导员关注对象"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hint" type="Label" parent="CounselorGameOverPopup"]
+offset_left = 242.0
+offset_top = 292.0
+offset_right = 808.0
+offset_bottom = 326.0
+theme_override_colors/font_color = Color(0.33, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "游戏结束"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartFromClassroomButton" type="Button" parent="CounselorGameOverPopup"]
+offset_left = 280.0
+offset_top = 354.0
+offset_right = 470.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 20
+text = "重新开始"
+
+[node name="RestartCurrentLevelButton" type="Button" parent="CounselorGameOverPopup"]
+offset_left = 520.0
+offset_top = 354.0
+offset_right = 750.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 20
+text = "从此关重新开始"
+
+[connection signal="body_entered" from="DormExit" to="." method="_on_dorm_exit_body_entered"]
+[connection signal="body_entered" from="Bike" to="Bike" method="_on_body_entered"]
+[connection signal="body_exited" from="Bike" to="Bike" method="_on_body_exited"]
+[connection signal="pressed" from="CounselorGameOverPopup/RestartFromClassroomButton" to="." method="_on_restart_from_classroom_button_pressed"]
+[connection signal="pressed" from="CounselorGameOverPopup/RestartCurrentLevelButton" to="." method="_on_restart_current_level_button_pressed"]

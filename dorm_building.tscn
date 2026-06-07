@@ -1,0 +1,284 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://player.gd" id="1_player_script"]
+[ext_resource type="Texture2D" path="res://assets/player.png" id="2_player_sprite"]
+[ext_resource type="Script" path="res://dorm_building.gd" id="3_dorm_building_script"]
+[ext_resource type="Script" path="res://dorm_supervisor.gd" id="4_dorm_supervisor_script"]
+[ext_resource type="Texture2D" path="res://assets/teacher.png" id="5_supervisor_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obstacle_cell"]
+size = Vector2(206, 151)
+
+[node name="DormBuilding" type="Node2D"]
+script = ExtResource("3_dorm_building_script")
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_right = 1050.0
+offset_bottom = 620.0
+color = Color(0.93, 0.93, 0.89, 1)
+
+[node name="GroundLines" type="Node2D" parent="."]
+
+[node name="LineH1" type="ColorRect" parent="GroundLines"]
+offset_top = 155.0
+offset_right = 1050.0
+offset_bottom = 159.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineH2" type="ColorRect" parent="GroundLines"]
+offset_top = 310.0
+offset_right = 1050.0
+offset_bottom = 314.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineH3" type="ColorRect" parent="GroundLines"]
+offset_top = 465.0
+offset_right = 1050.0
+offset_bottom = 469.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineV1" type="ColorRect" parent="GroundLines"]
+offset_left = 210.0
+offset_right = 214.0
+offset_bottom = 620.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineV2" type="ColorRect" parent="GroundLines"]
+offset_left = 420.0
+offset_right = 424.0
+offset_bottom = 620.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineV3" type="ColorRect" parent="GroundLines"]
+offset_left = 630.0
+offset_right = 634.0
+offset_bottom = 620.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="LineV4" type="ColorRect" parent="GroundLines"]
+offset_left = 840.0
+offset_right = 844.0
+offset_bottom = 620.0
+color = Color(0.72, 0.72, 0.68, 1)
+
+[node name="MarbleVeins" type="Node2D" parent="."]
+
+[node name="Vein1" type="ColorRect" parent="MarbleVeins"]
+offset_left = 120.0
+offset_top = 110.0
+offset_right = 220.0
+offset_bottom = 114.0
+color = Color(0.78, 0.79, 0.76, 1)
+
+[node name="Vein2" type="ColorRect" parent="MarbleVeins"]
+offset_left = 470.0
+offset_top = 382.0
+offset_right = 600.0
+offset_bottom = 386.0
+color = Color(0.78, 0.79, 0.76, 1)
+
+[node name="Vein3" type="ColorRect" parent="MarbleVeins"]
+offset_left = 760.0
+offset_top = 220.0
+offset_right = 900.0
+offset_bottom = 224.0
+color = Color(0.78, 0.79, 0.76, 1)
+
+[node name="Vein4" type="ColorRect" parent="MarbleVeins"]
+offset_left = 300.0
+offset_top = 52.0
+offset_right = 430.0
+offset_bottom = 55.0
+color = Color(0.82, 0.83, 0.8, 1)
+
+[node name="Vein5" type="ColorRect" parent="MarbleVeins"]
+offset_left = 650.0
+offset_top = 515.0
+offset_right = 820.0
+offset_bottom = 518.0
+color = Color(0.82, 0.83, 0.8, 1)
+
+[node name="CellObstacles" type="Node2D" parent="."]
+
+[node name="Row2Col1" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(105, 232.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row2Col1"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row2Col1"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row2Col2" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(315, 232.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row2Col2"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row2Col2"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row2Col3" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(525, 232.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row2Col3"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row2Col3"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row2Col4" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(735, 232.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row2Col4"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row2Col4"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row4Col1" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(105, 542.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row4Col1"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row4Col1"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row4Col2" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(315, 542.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row4Col2"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row4Col2"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row4Col3" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(525, 542.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row4Col3"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row4Col3"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row4Col4" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(735, 542.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row4Col4"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row4Col4"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Row4Col5" type="StaticBody2D" parent="CellObstacles"]
+position = Vector2(945, 542.5)
+
+[node name="Visual" type="ColorRect" parent="CellObstacles/Row4Col5"]
+offset_left = -103.0
+offset_top = -75.5
+offset_right = 103.0
+offset_bottom = 75.5
+color = Color(0.62, 0.66, 0.62, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellObstacles/Row4Col5"]
+shape = SubResource("RectangleShape2D_obstacle_cell")
+
+[node name="Title" type="Label" parent="."]
+visible = false
+offset_left = 360.0
+offset_top = 36.0
+offset_right = 690.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.14, 0.14, 0.12, 1)
+theme_override_font_sizes/font_size = 36
+text = "宿舍楼下"
+horizontal_alignment = 1
+
+[node name="DormSupervisors" type="Node2D" parent="."]
+
+[node name="SupervisorRow1" type="Node2D" parent="DormSupervisors"]
+position = Vector2(78, 88)
+script = ExtResource("4_dorm_supervisor_script")
+patrol_start = Vector2(78, 88)
+patrol_end = Vector2(978, 88)
+sprite_visual = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="DormSupervisors/SupervisorRow1"]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("5_supervisor_sprite")
+
+[node name="SupervisorCol5" type="Node2D" parent="DormSupervisors"]
+position = Vector2(945, 82)
+script = ExtResource("4_dorm_supervisor_script")
+patrol_start = Vector2(945, 82)
+patrol_end = Vector2(945, 430)
+sprite_visual = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="DormSupervisors/SupervisorCol5"]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("5_supervisor_sprite")
+
+[node name="SupervisorRow3" type="Node2D" parent="DormSupervisors"]
+position = Vector2(78, 388)
+script = ExtResource("4_dorm_supervisor_script")
+patrol_start = Vector2(78, 388)
+patrol_end = Vector2(978, 388)
+sprite_visual = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="DormSupervisors/SupervisorRow3"]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("5_supervisor_sprite")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(42, 80)
+script = ExtResource("1_player_script")
+min_y = 0.0
+sprite_visual = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("2_player_sprite")
