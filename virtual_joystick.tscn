@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://virtual_joystick.gd" id="1_joystick_script"]
+[ext_resource type="Script" path="res://mobile_interact_button.gd" id="2_interact_button_script"]
+
+[node name="MobileControls" type="CanvasLayer"]
+layer = 50
+
+[node name="VirtualJoystick" type="Control" parent="."]
+z_index = 100
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -178.0
+offset_right = 178.0
+offset_bottom = -34.0
+mouse_filter = 1
+script = ExtResource("1_joystick_script")
+
+[node name="InteractButton" type="Button" parent="."]
+z_index = 100
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -132.0
+offset_right = -36.0
+offset_bottom = -36.0
+theme_override_font_sizes/font_size = 36
+text = "F"
+script = ExtResource("2_interact_button_script")

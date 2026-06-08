@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" path="res://assets/blackboard.png" id="9_blackboard_sprite"]
 [ext_resource type="Script" path="res://desks.gd" id="10_desks_script"]
 [ext_resource type="Script" path="res://main.gd" id="11_main_script"]
+[ext_resource type="PackedScene" path="res://virtual_joystick.tscn" id="12_mobile_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(36, 36)
@@ -988,6 +989,8 @@ offset_right = 625.0
 offset_bottom = 390.0
 theme_override_font_sizes/font_size = 22
 text = "重新开始"
+
+[node name="MobileControls" parent="." instance=ExtResource("12_mobile_controls")]
 
 [connection signal="body_entered" from="Dorm" to="Dorm" method="_on_body_entered"]
 [connection signal="pressed" from="GameOverPopup/RestartButton" to="." method="_on_restart_button_pressed"]

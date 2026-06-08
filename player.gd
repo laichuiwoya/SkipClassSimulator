@@ -13,6 +13,7 @@ var _spawn_position := Vector2.ZERO
 var _is_forced_returning := false
 var _forced_return_delay_left := 0.0
 var _is_control_locked := false
+var _virtual_joystick: Node = null
 
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _ready() -> void:
 			sprite_visual = found_sprite
 	if sprite_visual != null:
 		_sprite_base_position = sprite_visual.position
+	_virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
 	_clamp_to_screen_bounds()
 	_spawn_position = global_position
 
@@ -36,15 +38,28 @@ func _physics_process(delta):
 		_process_forced_return(delta)
 		return
 
-	var direction = Vector2.ZERO
-	direction.x=Input.get_axis("ui_left","ui_right")
-	direction.y=Input.get_axis("ui_up","ui_down")
+	var direction := _get_move_direction()
 	
 	velocity = direction.normalized() * speed
 	move_and_slide()
 	_clamp_to_screen_bounds()
 	_update_sprite_animation(delta, direction)
- 
+
+
+func _get_move_direction() -> Vector2:
+	var keyboard_direction := Vector2(
+		Input.get_axis("ui_left", "ui_right"),
+		Input.get_axis("ui_up", "ui_down")
+	)
+	if keyboard_direction.length() > 0.0:
+		return keyboard_direction
+
+	if _virtual_joystick == null or not is_instance_valid(_virtual_joystick):
+		_virtual_joystick = get_tree().get_first_node_in_group("virtual_joystick")
+	if _virtual_joystick != null and _virtual_joystick.has_method("get_vector"):
+		return _virtual_joystick.get_vector()
+
+	return Vector2.ZERO
 
 
 func _on_dorm_body_entered(_body: Node2D) -> void:

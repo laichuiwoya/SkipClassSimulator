@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdty3tqes32uu" path="res://assets/pixel_tree.png" id="6_tree_sprite"]
 [ext_resource type="Script" uid="uid://bo13gyu45wtrc" path="res://bike.gd" id="7_bike_script"]
 [ext_resource type="Texture2D" uid="uid://ep8314yt87x3" path="res://assets/pixel_bike.png" id="8_bike_sprite"]
+[ext_resource type="PackedScene" path="res://virtual_joystick.tscn" id="9_mobile_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obstacle_square"]
 size = Vector2(96, 96)
@@ -710,6 +711,8 @@ offset_right = 750.0
 offset_bottom = 396.0
 theme_override_font_sizes/font_size = 20
 text = "从此关重新开始"
+
+[node name="MobileControls" parent="." instance=ExtResource("9_mobile_controls")]
 
 [connection signal="body_entered" from="DormExit" to="." method="_on_dorm_exit_body_entered"]
 [connection signal="body_entered" from="Bike" to="Bike" method="_on_body_entered"]

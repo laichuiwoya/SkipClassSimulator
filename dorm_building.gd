@@ -22,7 +22,6 @@ var _door_prompt: Node2D = null
 var _nearest_door_spot := -1
 var _entered_door_spot := -1
 var _is_inside_dorm := false
-var _was_f_pressed := false
 var _supervisor_found_count := 0
 var _is_game_over := false
 var _game_over_popup: Node2D = null
@@ -240,14 +239,10 @@ func _process_dorm_enter_exit() -> void:
 		return
 	if _victory_popup != null and _victory_popup.visible:
 		return
-	var is_f_pressed := Input.is_key_pressed(KEY_F)
-	var just_pressed_f := is_f_pressed and not _was_f_pressed
-	_was_f_pressed = is_f_pressed
-
 	if _player == null or _nearest_door_spot < 0:
 		return
 
-	if not just_pressed_f:
+	if not Input.is_action_just_pressed("interact"):
 		return
 
 	if _is_inside_dorm:

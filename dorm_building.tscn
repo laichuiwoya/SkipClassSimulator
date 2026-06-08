@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://player.gd" id="1_player_script"]
 [ext_resource type="Texture2D" path="res://assets/player.png" id="2_player_sprite"]
 [ext_resource type="Script" path="res://dorm_building.gd" id="3_dorm_building_script"]
 [ext_resource type="Script" path="res://dorm_supervisor.gd" id="4_dorm_supervisor_script"]
 [ext_resource type="Texture2D" path="res://assets/teacher.png" id="5_supervisor_sprite"]
+[ext_resource type="PackedScene" path="res://virtual_joystick.tscn" id="6_mobile_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(36, 36)
@@ -272,3 +273,5 @@ shape = SubResource("RectangleShape2D_player")
 texture_filter = 1
 position = Vector2(0, -8)
 texture = ExtResource("2_player_sprite")
+
+[node name="MobileControls" parent="." instance=ExtResource("6_mobile_controls")]

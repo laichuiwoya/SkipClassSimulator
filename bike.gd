@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	if _is_used or _nearby_player == null:
 		return
 
-	if Input.is_key_pressed(KEY_F):
+	if Input.is_action_just_pressed("interact"):
 		_nearby_player.set("speed", ride_speed)
 		_is_used = true
 		visible = false
