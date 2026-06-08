@@ -4,6 +4,9 @@ extends Node2D
 @export var return_to_spawn_delay := 0.6
 @export var classroom_scene_path := "res://main.tscn"
 @export var dorm_building_scene_path := "res://dorm_building.tscn"
+@export var transition_scene_path := "res://level_transition.tscn"
+
+const LevelTransition := preload("res://level_transition.gd")
 
 @onready var player: Node = $Player
 @onready var counselor_game_over_popup: CanvasItem = $CounselorGameOverPopup
@@ -18,8 +21,8 @@ func _ready() -> void:
 
 func _on_dorm_exit_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print("你已回到宿舍")
-		get_tree().change_scene_to_file(dorm_building_scene_path)
+		LevelTransition.configure(dorm_building_scene_path, "宿舍楼")
+		get_tree().change_scene_to_file(transition_scene_path)
 
 
 func handle_counselor_found_player(finding_counselor: Node = null) -> void:
@@ -28,7 +31,6 @@ func handle_counselor_found_player(finding_counselor: Node = null) -> void:
 	if player != null and player.has_method("is_forced_returning") and player.call("is_forced_returning") == true:
 		return
 
-	print("你被辅导员发现")
 	_counselor_found_count += 1
 	var return_delay := return_to_spawn_delay
 	if finding_counselor != null and finding_counselor.has_method("show_caught_bubble"):

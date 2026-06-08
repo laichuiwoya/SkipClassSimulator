@@ -239,20 +239,10 @@ script = ExtResource("4_dorm_supervisor_script")
 patrol_start = Vector2(78, 88)
 patrol_end = Vector2(978, 88)
 sprite_visual = NodePath("Sprite2D")
+randomize_spawn = false
+initial_direction = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="DormSupervisors/SupervisorRow1"]
-texture_filter = 1
-position = Vector2(0, -8)
-texture = ExtResource("5_supervisor_sprite")
-
-[node name="SupervisorCol5" type="Node2D" parent="DormSupervisors"]
-position = Vector2(945, 82)
-script = ExtResource("4_dorm_supervisor_script")
-patrol_start = Vector2(945, 82)
-patrol_end = Vector2(945, 430)
-sprite_visual = NodePath("Sprite2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="DormSupervisors/SupervisorCol5"]
 texture_filter = 1
 position = Vector2(0, -8)
 texture = ExtResource("5_supervisor_sprite")

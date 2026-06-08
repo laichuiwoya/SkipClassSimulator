@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="逃课模拟器"
-run/main_scene="res://dorm_building.tscn"
+run/main_scene="res://welcome.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

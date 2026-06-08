@@ -301,7 +301,6 @@ func _update_sight_visual() -> void:
 
 
 func _handle_player_caught() -> void:
-	print("被老师发现了！")
 	_caught_count += 1
 	if _caught_count >= max_caught_count:
 		_trigger_game_over()

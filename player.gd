@@ -123,21 +123,26 @@ func _update_sprite_animation(delta: float, direction: Vector2) -> void:
 		_anim_time += delta
 		var stride := sin(_anim_time * 16.0)
 		sprite_visual.position = _sprite_base_position + Vector2(stride * 1.2, -absf(stride) * 2.0)
-		sprite_visual.flip_h = false
-		sprite_visual.rotation_degrees = _get_facing_rotation(direction) + stride * 3.0
+		if absf(direction.x) > absf(direction.y):
+			sprite_visual.flip_h = false
+			sprite_visual.rotation_degrees = _get_horizontal_facing_rotation(direction) + stride * 3.0
+		else:
+			sprite_visual.flip_h = false
+			sprite_visual.rotation_degrees = _get_vertical_facing_rotation(direction) + stride * 3.0
 	else:
 		sprite_visual.position = _sprite_base_position
 		sprite_visual.rotation_degrees = 0.0
 		sprite_visual.flip_h = false
 
 
-func _get_facing_rotation(direction: Vector2) -> float:
-	if absf(direction.x) > absf(direction.y):
-		if direction.x > 0.0:
-			return 90.0
-		return -90.0
-
+func _get_vertical_facing_rotation(direction: Vector2) -> float:
 	if direction.y < 0.0:
 		return 180.0
 
 	return 0.0
+
+
+func _get_horizontal_facing_rotation(direction: Vector2) -> float:
+	if direction.x > 0.0:
+		return -90.0
+	return 90.0

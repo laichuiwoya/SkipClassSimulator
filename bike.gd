@@ -27,7 +27,6 @@ func _process(_delta: float) -> void:
 		monitoring = false
 		if prompt_bubble != null:
 			prompt_bubble.visible = false
-		print("你骑上了单车")
 
 
 func _on_body_entered(body: Node2D) -> void:

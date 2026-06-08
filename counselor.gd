@@ -406,8 +406,6 @@ func _check_player_visibility() -> void:
 		var parent_scene: Node = get_tree().current_scene
 		if parent_scene != null and parent_scene.has_method("handle_counselor_found_player"):
 			parent_scene.call("handle_counselor_found_player", self)
-		else:
-			print("你被辅导员发现")
 	_was_player_seen = can_see_player
 
 

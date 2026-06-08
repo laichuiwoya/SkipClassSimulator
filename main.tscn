@@ -51,6 +51,17 @@ offset_right = 1050.0
 offset_bottom = 158.0
 color = Color(0.43, 0.32, 0.22, 1)
 
+[node name="EntertainmentNotice" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 104.0
+offset_right = 800.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.25, 0.19, 0.13, 1)
+theme_override_font_sizes/font_size = 16
+text = "本游戏仅供娱乐，无不良引导；请勿模仿现实逃课行为。"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FloorTiles" type="Node2D" parent="."]
 
 [node name="TileLineH1" type="ColorRect" parent="FloorTiles"]
